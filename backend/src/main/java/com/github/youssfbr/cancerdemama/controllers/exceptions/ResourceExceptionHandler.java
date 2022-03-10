@@ -1,6 +1,6 @@
 package com.github.youssfbr.cancerdemama.controllers.exceptions;
 
-import com.github.youssfbr.cancerdemama.services.exceptions.RegiaoNotFoundException;
+import com.github.youssfbr.cancerdemama.services.exceptions.EntityNotFoundException;
 
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
@@ -29,8 +29,8 @@ public class ResourceExceptionHandler {
         return ResponseEntity.badRequest().body(new ApiErros(messages));
     }
 
-    @ExceptionHandler(RegiaoNotFoundException.class)
-    public ResponseEntity<ApiErros> personNotFound(RegiaoNotFoundException e) {
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<ApiErros> personNotFound(EntityNotFoundException e) {
 
         ApiErros message = getError(HttpStatus.NOT_FOUND, e.getMessage());
 
